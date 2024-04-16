@@ -13,7 +13,7 @@ pipeline {
             step('Enter a File') {
                 echo "Step 2 is running..."
                 script {
-                    Chose_File =" input(Plase Enter your Choise: C/Python/Java ")
+                    Chose_File = input("Plase Enter your Choise: C/Python/Java ")
                     sh """
                     cat ${Chose_file}
                        """
