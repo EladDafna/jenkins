@@ -22,12 +22,12 @@ pipeline {
         }
         stage("Save File") {
             agent {
-                label "master"
+                label "zohar"
             }
             steps{
                 echo "Step 3 is running..."
                 script {
-                    sh "cp ${params.Test_Type}.txt ~/2Test_pipeline/${params.Test_Type}.txt"
+                    sh "mkdir -p ~/Test_pipeline && touch ~/Test_pipeline/${params.Test_Type}.txt && cp ${params.Test_Type}.txt ~/Test_pipeline/${params.Test_Type}.txt"
                 }
             }
         }
