@@ -10,13 +10,15 @@ pipeline {
                     sh 'ls -la'
                 }
             }
-            step('Enter a File') {
+            stage('Enter a File') {
+                steps{
                 echo "Step 2 is running..."
                 script {
                     Chose_File = input("Plase Enter your Choise: C/Python/Java ")
                     sh """
                     cat ${Chose_file}
                        """
+                    }
                 }
 
             }
