@@ -1,0 +1,15 @@
+pipeline {
+    agent {
+        label 'master'
+    }
+    stages {
+        stage('1-Test') {
+            steps {
+                echo "Hello World"
+                script {
+                    sh 'ls -la'
+                }
+            }
+        }
+    }
+}
