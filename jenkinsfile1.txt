@@ -28,7 +28,7 @@ pipeline {
                 steps{
                     echo "Step 3 is running..."
                     script {
-                        sh "cp ${params.Test_Type}.txt ~/Test_pipeline/"
+                        sh "cp ${params.Test_Type}.txt ~/Test_pipeline/${params.Test_Type}.txt"
                     }
                 }
             }
