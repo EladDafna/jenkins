@@ -14,13 +14,23 @@ pipeline {
         }
             stage('Enter a File') {
                 steps{
-                echo "Step 2 is running..."
-                script {
+                    echo "Step 2 is running..."
+                    script {
                     sh "cat ${params.Test_Type}.txt"
                     }
                 }
 
             }
+            stage("Save File") {
+                agent{
+                    label ("master")
+                }
+                steps{
+                    echo "Step 3 is running..."
+                    script {
+                        sh "cp ${params.Test_Type}.txt ~/Test_pipeline"
+                    }
+                }
+            }
         }
     }
-
