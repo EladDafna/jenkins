@@ -11,16 +11,18 @@ pipeline {
                 }
             }
         }
-        stage('Enter a File') {
-            steps {
+            stage('Enter a File') {
+                steps{
                 echo "Step 2 is running..."
                 script {
-                    Chose_File = input("Plase Enter your Choise: C/Python/Java ")
+
                     sh """
-                    cat ${Chose_File}
-                    """
+                    cat ${Test_Type.txt}
+                       """
+                    }
                 }
+
             }
         }
     }
-}
+
