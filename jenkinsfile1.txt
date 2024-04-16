@@ -1,0 +1,17 @@
+pipeline {
+    agent {
+        label 'testjenkins'
+    }
+    stages {
+        stage('1-Test') {
+            steps {
+                git branch: 'main', credentialsId: '01', url: 'git@github.com:EladDafna/jenkins.git'
+                echo "Hello World"
+                script {
+                    sh 'ls -la'
+                    sh 'pwd'
+                }
+            }
+        }
+    }
+}
