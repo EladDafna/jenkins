@@ -7,30 +7,29 @@ pipeline {
             steps {
                 echo "step 1 is running...."
                 script {
-                echo "${JENKINS_HOME}"
+                    echo "${JENKINS_HOME}"
                     sh 'ls -la'
                 }
             }
         }
-            stage('Enter a File') {
-                steps{
-                    echo "Step 2 is running..."
-                    script {
+        stage('Enter a File') {
+            steps{
+                echo "Step 2 is running..."
+                script {
                     sh "cat ${params.Test_Type}.txt"
-                    }
                 }
-
             }
-            stage("Save File") {
-                agent{
-                    label ("master")
-                }
-                steps{
-                    echo "Step 3 is running..."
-                    script {
-                        sh "cp ${params.Test_Type}.txt ~/Test_pipeline/${params.Test_Type}.txt"
-                    }
+        }
+        stage("Save File") {
+            agent {
+                label "master"
+            }
+            steps{
+                echo "Step 3 is running..."
+                script {
+                    sh "cp ${params.Test_Type}.txt ~/Test_pipeline/${params.Test_Type}.txt"
                 }
             }
         }
     }
+}
