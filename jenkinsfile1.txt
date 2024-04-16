@@ -27,7 +27,7 @@ pipeline {
             steps{
                 echo "Step 3 is running..."
                 script {
-                    sh "mkdir -p ~/Test_pipeline && touch ~/Test_pipeline/${params.Test_Type}.txt && cp ${params.Test_Type}.txt ~/Test_pipeline/${params.Test_Type}.txt"
+                    sh "mkdir -p ~/2Test_pipeline && touch ~/2Test_pipeline/${params.Test_Type}.txt && cp ${params.Test_Type}.txt ~/2Test_pipeline/${params.Test_Type}.txt"
                 }
             }
         }
