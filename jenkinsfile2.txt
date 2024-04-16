@@ -16,7 +16,7 @@ pipeline {
                 steps{
                 echo "Step 2 is running..."
                 script {
-                    sh "echo ${params.Trueeee}"
+                    sh "echo ${params.MY_PASSWORD}"
                     }
                 }
 
