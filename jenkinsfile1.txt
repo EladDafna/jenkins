@@ -10,6 +10,7 @@ pipeline {
                     sh 'ls -la'
                 }
             }
+        }
             stage('Enter a File') {
                 steps{
                 echo "Step 2 is running..."
@@ -24,4 +25,4 @@ pipeline {
             }
         }
     }
-}
+
