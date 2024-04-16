@@ -15,10 +15,7 @@ pipeline {
                 steps{
                 echo "Step 2 is running..."
                 script {
-
-                    sh """
-                    cat ${Test_Type.txt}
-                       """
+                    sh "cat ${params.Test_Type}.txt"
                     }
                 }
 
