@@ -7,7 +7,11 @@ pipeline {
             steps {
                 echo "Hello World"
                 script {
-                    sh 'ls -la'
+                    sh """
+                       ls -la
+                       pwd
+                       cat 1.txt
+                       """
                 }
             }
         }
