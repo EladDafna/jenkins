@@ -3,12 +3,22 @@ pipeline {
         label 'testjenkins'
     }
     stages {
-        stage('1-Test') {
+        stage('List_File') {
             steps {
-                echo "Hello World"
+                echo "step 1 is running...."
                 script {
                     sh 'ls -la'
                 }
+            }
+            step('Enter a File') {
+                echo "Step 2 is running..."
+                script {
+                    Chose_File =" input(Plase Enter your Choise: C/Python/Java ")
+                    sh """
+                    cat ${Chose_file}
+                       """
+                }
+
             }
         }
     }
