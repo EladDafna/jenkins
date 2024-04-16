@@ -22,7 +22,7 @@ pipeline {
         }
         stage("Save File") {
             agent {
-                label "zohar"
+                label "master"
             }
             steps{
                 echo "Step 3 is running..."
