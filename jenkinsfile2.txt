@@ -1,19 +1,26 @@
 pipeline {
     agent {
-        label 'master'
+        label 'testjenkins'
     }
     stages {
-        stage('1-Test') {
+        stage('List_File') {
             steps {
-                echo "Hello World"
+                echo "step 1 is running...."
                 script {
-                    sh """
-                       ls -la
-                       pwd
-                       cat 1.txt
-                       """
+                echo "${JENKINS_HOME}"
+                    sh 'ls -la'
                 }
             }
         }
+            stage('Enter a File') {
+                steps{
+                echo "Step 2 is running..."
+                script {
+                    sh "cat ${params.StringParameter}.txt"
+                    }
+                }
+
+            }
+        }
     }
-}
+
