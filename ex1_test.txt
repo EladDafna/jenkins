@@ -7,7 +7,7 @@ pipeline {
             steps {
                 echo "step 1 is running...."
                 script {
-                    echo "${JENKINS_HOME}"
+                    echo "hello"
                     sh 'ls -la'
                 }
             }
