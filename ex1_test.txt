@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         PROJECT_NAME = "PIPE-2"
-        OWNER_NAME = "Dag"
+        OWNER_NAME = "Elad"
         TAG_DATE = new Date().format('yyyy-MM-dd')
     }
 
