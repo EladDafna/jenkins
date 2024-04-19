@@ -1,12 +1,14 @@
 pipeline {
-agent{
-    label "testjenkins"
-}
-        stages {
-            stage("Print Hello") {
-                steps {
-                    echo "Hello Jenkins!"
-            }
-        } 
+    agent {
+        label 'testjenkins'
     }
-}
+    stages {
+        stage('List_File') {
+            steps {
+                echo "step 1 is running...."
+                script {
+                    echo "${JENKINS_HOME}"
+                    sh 'ls -la'
+                }
+            }
+        }
