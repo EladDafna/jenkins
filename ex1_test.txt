@@ -1,3 +1,4 @@
+
 pipeline {
     agent {
         label 'testjenkins'
@@ -7,9 +8,10 @@ pipeline {
             steps {
                 echo "step 1 is running...."
                 script {
-                    echo "hello"
+                echo "${JENKINS_HOME}"
                     sh 'ls -la'
                 }
+
             }
         }
     }
