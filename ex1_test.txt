@@ -8,5 +8,5 @@ agent{
                     echo "Hello Jenkins!"
             }
         } 
-    } 
+    }
 }
