@@ -8,12 +8,13 @@ pipeline {
     stages {
         stage("Test-1") {
             steps {
-                sh """
-                    mkdir newdir2
-                    echo Success >> newdir2/newfile.txt
-                    echo "Hello, ${params.Name}"
-                   """
+                sh 'echo "Build Information" > build_info.txt'
             }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: 'build_info.txt', onlyIfSuccessful: true
         }
     }
 }
