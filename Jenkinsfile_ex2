@@ -2,10 +2,6 @@ pipeline {
     agent {
         label "linux"
     }
-    environment {
-    PROJECT_NAME = "Test-Project"
-    OWNER_NAME   = "Elad"
-    }
     stages {
         stage("Test-1") {
             steps {
@@ -13,9 +9,9 @@ pipeline {
             }
         }
     }
-   post {
-    success {
-        emailext body: 'Build Passed\n\n${BUILD_URL}', subject: 'Build Success', to: 'eladdaf@gmail.com'
+    post {
+        success {
+            emailext body: 'Build Passed\n\n${BUILD_URL}', subject: 'Build Success', to: 'eladdaf@gmail.com'
+        }
     }
-   }
 }
