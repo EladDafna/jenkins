@@ -15,6 +15,7 @@ pipeline {
     }
     post {
         success {
+            archiveArtifacts artifacts: 'build_info.txt'
             mail to: 'eladdaf@gmail.com',
             subject: "Hey Elad",
             body: "the pipeline is success"
