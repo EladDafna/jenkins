@@ -11,7 +11,7 @@ pipeline {
     }
     post {
         success {
-            emailext body: 'Build Passed\n\n${BUILD_URL}', subject: 'Build Success', to: 'eladdaf@gmail.com'
+            emailext body: 'Build Passed\n\n${BUILD_URL}', subject: 'Build Success', to: 'eladdaf@gmail.co.il'
         }
     }
 }
