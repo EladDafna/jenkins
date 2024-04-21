@@ -14,7 +14,7 @@ pipeline {
         }
     }
    post {
-    success {
+    failure {
         mail to: 'eladdaf@gmail.com', subject: 'Good Luck'
     }
    }
