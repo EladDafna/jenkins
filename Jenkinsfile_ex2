@@ -11,6 +11,7 @@ pipeline {
                 sh """
                     mkdir newdir
                     echo Success >> newdir/newfile.txt
+                    echo "Hello, ${params.Name}"
                    """
             }
         }
