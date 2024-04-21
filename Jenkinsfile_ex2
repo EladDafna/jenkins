@@ -16,7 +16,7 @@ pipeline {
    post {
     success {
         mail to: 'eladdaf@gmail.com'
-        subject: "Hey Elad"
+        subject: "Hey Elad",
         body: "the pipeline is success"
     }
    }
