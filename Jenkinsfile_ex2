@@ -2,6 +2,9 @@ pipeline {
     agent{
         label "linux"
     }
+    parameters{
+        string(name:'Name' , defaultValue: 'Elad', description: 'Enter Your Name')
+    }
     stages {
         stage ("Test-1") {
             steps {
