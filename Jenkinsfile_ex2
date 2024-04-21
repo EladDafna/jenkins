@@ -3,8 +3,8 @@ pipeline {
         label "linux"
     }
     environment {
-    PROJECT_NAME = "Test-Project"
-    OWNER_NAME   = "Elad"
+        PROJECT_NAME = "Test-Project"
+        OWNER_NAME   = "Elad"
     }
     stages {
         stage("Test-1") {
@@ -13,11 +13,11 @@ pipeline {
             }
         }
     }
-   post {
-    success {
-        mail to: 'eladdaf@gmail.com'
-        subject: "Hey Elad",
-        body: "the pipeline is success"
+    post {
+        success {
+            mail to: 'eladdaf@gmail.com',
+            subject: "Hey Elad",
+            body: "the pipeline is success"
+        }
     }
-   }
 }
