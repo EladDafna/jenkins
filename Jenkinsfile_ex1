@@ -1,0 +1,12 @@
+pipeline {
+    agent{
+        label "linux"
+    }
+    stages {
+        stage ("Test-1") {
+            steps {
+                echo "Hello Jenkins!!"
+            }
+        }
+    }
+}
