@@ -1,16 +1,16 @@
 pipeline {
-    agent{
+    agent {
         label "linux"
     }
-    parameters{
-        string(name:'Name' , defaultValue: 'Eladd', description: 'Enter Your Name')
+    parameters {
+        string(name: 'Name', defaultValue: 'Eladd', description: 'Enter Your Name')
     }
     stages {
-        stage ("Test-1") {
+        stage("Test-1") {
             steps {
                 sh """
-                   mkdir newdirelad
-                   echo Succsess >> newdirelad
+                    mkdir newdir
+                    echo Success >> newdir/newfile.txt
                    """
             }
         }
