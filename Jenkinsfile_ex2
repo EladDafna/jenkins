@@ -3,28 +3,21 @@ pipeline {
         label "linux"
     }
     environment {
-        PROJECT_NAME = "Test-Project"
-        OWNER_NAME   = "Elad"
+    PROJECT_NAME = "Test-Project"
+    OWNER_NAME   = "Elad"
     }
     stages {
         stage("Test-1") {
             steps {
-                sh 'exit 1' // הוספתי פקודה שתכשיל את הפייפליין
+                sh 'echo "Build Information" > build_info.txt'
             }
         }
     }
-    post {
-        always {
-            echo 'Always say Hello again!'
-        }
-        success {
-            echo 'The Pipeline was successful!'
-        }
-        failure {
-                mail to: 'eladdaf@gmail.com', 
-                    subject: "The Pipeline ${PROJECT_NAME} failed :(", 
-                    body: "The ${PROJECT_NAME} pipeline has failed. Please check the Jenkins console output for more information."
-
-        }
+   post {
+    success {
+        mail to: 'eladdaf@gmail.com'
+        subject: "Hey Elad"
+        body: "the pipeline is success"
     }
+   }
 }
