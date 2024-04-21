@@ -21,11 +21,10 @@ pipeline {
             echo 'The Pipeline was successful!'
         }
         failure {
-            script {
                 mail to: 'eladdaf@gmail.com', 
                     subject: "The Pipeline ${PROJECT_NAME} failed :(", 
                     body: "The ${PROJECT_NAME} pipeline has failed. Please check the Jenkins console output for more information."
-            }
+
         }
     }
 }
