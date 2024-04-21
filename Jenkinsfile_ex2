@@ -2,19 +2,26 @@ pipeline {
     agent {
         label "linux"
     }
-    parameters {
-        string(name: 'Name', defaultValue: 'Eladd', description: 'Enter Your Name')
+    environment {
+        PROJECT_NAME = "Test-Project"
+        OWNER_NAME   = "Elad"
     }
     stages {
         stage("Test-1") {
             steps {
-                sh 'echo "Build Information" > build_info.txt'
+                sh 'exit 1' // הוספתי פקודה שתכשיל את הפייפליין
             }
         }
     }
     post {
         always {
-            archiveArtifacts artifacts: 'build_info.txt', onlyIfSuccessful: true
+            echo 'Always say Hello again!'
+        }
+        success {
+            echo 'The Pipeline was successful!'
+        }
+        failure {
+            mail to: 'eladdaf@gmail.com', subject: "The Pipeline ${PROJECT_NAME} failed :(", body: "The ${PROJECT_NAME} pipeline has failed. Please check the Jenkins console output for more information."
         }
     }
 }
