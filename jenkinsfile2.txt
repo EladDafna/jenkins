@@ -1,0 +1,26 @@
+pipeline {
+    agent {
+        label 'testjenkins'
+    }
+    stages {
+        stage('List_File') {
+            steps {
+                echo "step 1 is running...."
+                script {
+                echo "${JENKINS_HOME}"
+                    sh 'ls -la'
+                }
+            }
+        }
+            stage('Enter a File') {
+                steps{
+                echo "Step 2 is running..."
+                script {
+                    sh "cat ${Choise_Test}.txt"
+                    }
+                }
+
+            }
+        }
+    }
+
