@@ -12,7 +12,7 @@
 */
 
 pipeline {
-    agent{
+    agent {
         label "linux"
     }
     environment {
@@ -25,7 +25,7 @@ pipeline {
                     sh '''
                        echo "${env.MY_DIR}"
                        mkdir "${env.MY_DIR}"
-                       cd "${env.MYDIR}"
+                       cd "${env.MY_DIR}"
                        pwd
                        ls -la
                        '''
@@ -47,12 +47,12 @@ pipeline {
                 sh "cat ${env.MY_DIR}/info.txt"
 
             }
-         
+
         }
     }
-    post{
+    post {
         success {
-            echo "The ${JOB_NAME} has Succsess"
+            echo "The ${JOB_NAME} has Success"
         }
         failure {
             mail to: "eladdaf@gmail.com",
@@ -60,5 +60,4 @@ pipeline {
             body: "the ${JOB_NAME} has fail Please Check again the code."
         }
     }
-
 }
