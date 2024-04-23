@@ -10,9 +10,9 @@ pipeline {
             steps {
                 script {
                     sh '''
-                       echo "${env.MY_DIR}"
-                       mkdir "${env.MY_DIR}"
-                       cd "${env.MY_DIR}"
+                       echo "${MY_DIR}"
+                       mkdir "${MY_DIR}"
+                       cd "${MY_DIR}"
                        pwd
                        ls -la
                        '''
@@ -22,13 +22,13 @@ pipeline {
         stage("Information about the build -2") {
             steps {
                 script {
-                    sh "echo 'Build Number is: ${BUILD_NUMBER}. \nJob Name is: ${JOB_NAME}' >> ${env.MY_DIR}/info.txt"
+                    sh "echo 'Build Number is: ${BUILD_NUMBER}.\nJob Name is: ${JOB_NAME}' >> ${MY_DIR}/info.txt"
                 }
             }
         }
         stage("Check Files-3") {
             steps {
-                sh "cat ${env.MY_DIR}/info.txt"
+                sh "cat ${MY_DIR}/info.txt"
             }
         }
     }
