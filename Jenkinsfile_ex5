@@ -55,8 +55,8 @@ pipeline {
             echo "The ${JOB_NAME} has Succsess"
         }
         failure {
-            mail to: "eladdaf@gmail.com"
-            subject: "Hello ${NODE_NAME}"
+            mail to: "eladdaf@gmail.com",
+            subject: "Hello ${NODE_NAME}",
             body: "the ${JOB_NAME} has fail Please Check again the code."
         }
     }
