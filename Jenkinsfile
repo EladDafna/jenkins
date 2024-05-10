@@ -31,7 +31,7 @@ pipeline {
                     ls -la
                     cd docker
                     pwd
-                    docker build -t mywebsite:${BUILD_NUMBER} .
+                    docker build -t mywebsite:${BUILD_NUMBER} . -f Dockerfile
                '''
          }
       }
