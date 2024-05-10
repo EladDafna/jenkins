@@ -4,8 +4,8 @@ pipeline {
     }
     parameters {
         choise (
-            name: 'Language'
-            choises: ['All', 'Python', 'C', 'Java']
+            name: 'Language',
+            choises: ['All', 'Python', 'C', 'Java'],
             description: 'Choose the language'
         )
          defaultValue('All')
@@ -42,4 +42,5 @@ pipeline {
             echo "Step 3 is running..."
         }
     }
+}
 }
