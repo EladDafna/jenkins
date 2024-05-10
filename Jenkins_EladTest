@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo "step 1 is running...."
                 script {
-                    echo "${JENKINS_HOME}"
+                    echo "${WORKSPACE}"
                     sh 'ls -la'
                 }
             }
