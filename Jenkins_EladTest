@@ -3,44 +3,44 @@ pipeline {
         label 'testjenkins'
     }
     parameters {
-        choise (
+        choice(
             name: 'Language',
-            choises: ['All', 'Python', 'C', 'Java'],
+            choices: ['All', 'Python', 'C', 'Java'],
             description: 'Choose the language'
         )
-         defaultValue('All')
+        defaultValue('All')
     }
     stages {
-        stage ('List File - (Step 1)') {
-            steps{
+        stage('List File - (Step 1)') {
+            steps {
                 echo "step 1 is running...."
                 script {
                     echo "${JENKINS_HOME}"
                     sh 'ls -la'
+                }
             }
         }
-    }
-    stage ('Enter a File - (Step 2)') {
-        when {
-            expression {params.Language != 'All'}
-        }
-        steps {
-            echo "step 2 is running...."
-            script {
+        stage('Enter a File - (Step 2)') {
+            when {
+                expression { params.Language != 'All' }
+            }
+            steps {
+                echo "step 2 is running...."
+                script {
                     sh "cat ${params.Language}.txt"
                 }
-        }
-    }
-    stage ('Save File in Another Agent - (Step 3)') {
-        agent {
-            label 'master'
-        }
-        steps {
-            when {
-                expression {params.Language != 'All'}
             }
-            echo "Step 3 is running..."
+        }
+        stage('Save File in Another Agent - (Step 3)') {
+            agent {
+                label 'master'
+            }
+            steps {
+                when {
+                    expression { params.Language != 'All' }
+                }
+                echo "Step 3 is running..."
+            }
         }
     }
-}
 }
