@@ -20,16 +20,16 @@ pipeline {
             }
         }
         stage ('Enter a File - (Step 2)') {
-            when {
+             when {
                 expression {params.Language != 'All'}
-            }
+    }
             steps {
-                echo "step 2 is running...."
-                script {
-                    sh "cat ${params.Language}.txt"
-                }
-            }
+               echo "step 2 is running...."
+               script {
+                  sh "cat ${params.Language}.txt"
         }
+    }
+}
         stage ('Save File in Another Agent - (Step 3)') {
             agent {
                 label 'master'
