@@ -41,12 +41,8 @@ pipeline {
                 echo "Step 3 is running..."
                 script {
                     sh 'cd ~'
-                    if (params.Language != 'All') {
-                    sh "cp ${params.Language}.txt > ~/Test_Project"
-                    }
-                    else {
                         sh "cp -r ${WORKSPACE}/{C.txt,Java.txt,Python.txt} ~/Test_Project/"
-                    }
+
                 }
             }
         }
