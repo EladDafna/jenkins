@@ -7,7 +7,6 @@ pipeline {
             name: 'Language',
             choices: ['All', 'Python', 'C', 'Java'],
             description: 'Choose the language',
-            defaultValue: 'All'
         )
     }
     stages {
