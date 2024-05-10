@@ -10,12 +10,13 @@ pipeline {
 	  stage('Checking environment') {
          steps {
             sh 'printenv'
-            sh 'pwd'
+            sh 'mkdir -p docker'
          }
       }
 	  stage('To update sources of the website') {
          steps {
 	 sh '''
+        cd docker
 	    echo "Input param ${NAME}"		
 	    echo "<p>Hello from ${NAME}!</p>" >> index.html
 	 '''
