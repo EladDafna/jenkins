@@ -41,7 +41,7 @@ pipeline {
                 echo "Step 3 is running..."
                 script {
                     sh 'cd ~'
-                        sh "cp -r ${WORKSPACE}/{C.txt,Java.txt,Python.txt} ~/Test_Project/"
+                        echo "cp -r ${WORKSPACE}/{C.txt,Java.txt,Python.txt} ~/Test_Project/"
 
                 }
             }
