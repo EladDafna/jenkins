@@ -10,6 +10,7 @@ pipeline {
 	  stage('Checking environment') {
          steps {
             sh 'printenv'
+            sh 'pwd'
          }
       }
 	  stage('To update sources of the website') {
