@@ -6,9 +6,9 @@ pipeline {
         choice(
             name: 'Language',
             choices: ['All', 'Python', 'C', 'Java'],
-            description: 'Choose the language'
+            description: 'Choose the language',
+            defaultParameterValue: 'All'
         )
-        defaultValue('All')
     }
     stages {
         stage ('List File - (Step 1)') {
