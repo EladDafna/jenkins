@@ -41,7 +41,7 @@ pipeline {
                 echo "Step 3 is running..."
                 script {
                     sh 'cd ~'
-                    sh "mkdir -p ~/Test_Project && cp ${params.Language}.txt ~/Test_Project/*${params.Language}"
+                    sh "mkdir -p ~/Test_Project && cp ${params.Language}.txt ~/Test_Project/*${params.Language}.txt"
                 }
             }
         }
