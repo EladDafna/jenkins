@@ -27,6 +27,7 @@ pipeline {
          steps {
             echo 'Build process..'            
             sh '''
+                pwd
                 cd docker
                 docker build -t="mywebsite:${BUILD_NUMBER}" .
             '''
