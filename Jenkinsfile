@@ -19,6 +19,7 @@ pipeline {
         cd docker
 	    echo "Input param ${NAME}"		
 	    echo "<p>Hello from ${NAME}!</p>" >> index.html
+        docker ps -a
 	 '''
          }
       }
