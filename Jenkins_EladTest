@@ -39,6 +39,9 @@ pipeline {
             }
             steps {
                 echo "Step 3 is running..."
+                script {
+                    sh "mkdir -p ~/ && touch ~/Test_Project/${params.Language}.txt && cp ${params.Language}.txt ~/Test_Project/${params.Language}.txt"
+                }
             }
         }
     }
