@@ -27,10 +27,12 @@ pipeline {
          steps {
             echo 'Build process..'            
             sh '''
-                pwd
-                cd docker
-                docker build -t="mywebsite:${BUILD_NUMBER}" .
-            '''
+                    pwd
+                    ls -la
+                    cd docker
+                    pwd
+                    docker build -t mywebsite:${BUILD_NUMBER} .
+               '''
          }
       }
       stage('Push a docker image') {
