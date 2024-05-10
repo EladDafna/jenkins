@@ -3,7 +3,7 @@ pipeline {
         label 'testjenkins'
     }
     parameters {
-        choice (
+        choice(
             name: 'Language',
             choices: ['All', 'Python', 'C', 'Java'],
             description: 'Choose the language'
