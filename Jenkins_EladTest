@@ -23,8 +23,8 @@ pipeline {
             steps {
                 echo "step 2 is running...."
                 script {
-                    pwd
-                    ls -la
+                    sh 'pwd'
+                    sh 'ls -la'
                     if (params.Language != 'All') {
                         sh "cat ${params.Language}.txt"
                     } else {
