@@ -40,8 +40,11 @@ pipeline {
             steps {
                 echo "Step 3 is running..."
                 script {
-                    sh 'cd ~'
-                    sh "mkdir -p ~/Test_Project && touch ~/Test_Project/${params.Language}.txt && cp ${params.Language}.txt ~/Test_Project/"
+                    if (params.Language != 'All') {
+                        sh "mkdir -p ~/Test_Project && cp ${params.Language}.txt ~/Test_Project/"
+                    } else {
+                        echo "Skipping copying files as Language is 'All'"
+                    }
                 }
             }
         }
