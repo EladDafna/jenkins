@@ -1,17 +1,12 @@
 pipeline {
-    agent { docker { image 'python:latest' } }
-    
-    stages {
-        stage('Build Docker image') {
-            steps {
-                sh """
-                  cd Docker
-                  pwd
-                  ls -la
-                  echo $PATH
-                  docker --version
-                   """
-            }
-        }
+  agent {
+    docker { image 'node:16-alpine' }
+  }
+  stages {
+    stage('Test') {
+      steps {
+        sh 'node --version'
+      }
     }
+  }
 }
