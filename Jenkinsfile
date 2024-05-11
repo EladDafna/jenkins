@@ -14,7 +14,7 @@ pipeline {
                 script {
                     sh """
                        pwd
-                       ls-la
+                       ls -la
                        """
                 }
             }
