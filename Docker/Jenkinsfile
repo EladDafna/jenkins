@@ -9,8 +9,7 @@ pipeline {
                   cd Docker
                   pwd
                   ls -la
-                  docker build -t mydockerimage:latest .
-                  docker images
+                  echo $PATH
                    """
             }
         }
