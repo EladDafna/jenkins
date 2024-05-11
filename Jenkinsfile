@@ -4,7 +4,6 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 sh """
-                  cd Docker
                   docker build -t mydockerimage:latest .
                   docker images
                    """
