@@ -9,8 +9,6 @@ pipeline {
                   cd Docker
                   pwd
                   ls -la
-                  echo $PATH
-                  docker --version
                    """
             }
         }
