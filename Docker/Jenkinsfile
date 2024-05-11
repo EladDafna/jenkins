@@ -5,11 +5,11 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 sh """
-                sudo apt-get install docker.io
                   cd Docker
                   pwd
                   ls -la
                   echo $PATH
+                  docker --version
                    """
             }
         }
