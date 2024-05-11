@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh """
                   cd Docker
-                  docker build -t mydockerimage:latest .
+                  docker build -t mydockerimage:latest . -f Dockerfile
                   docker images
                    """
             }
