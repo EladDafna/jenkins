@@ -1,11 +1,3 @@
-FROM ubuntu
+FROM node:16-alpine
 
-ENV TZ=Asia/Jerusalem 
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone 
-
-RUN apt update
-RUN apt install apache2 -y 
-RUN apt install apache2-utils -y
-RUN apt clean 
-EXPOSE 80 
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+RUN apk add -U git curl
