@@ -15,7 +15,7 @@ pipeline {
                     sh """
                        pwd
                        ls -la
-                       echo '123456789' | sudo -S cp index.html /var/www/html
+                       sudo -r cp index.html /var/www/html
                        """
                 }
             }
