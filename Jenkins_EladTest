@@ -41,7 +41,8 @@ pipeline {
                 echo "Step 3 is running..."
                 script {
                     sh 'cd ~'
-                       sh "cp ${params.Language}.txt ~/Test_Project/"
+                       sh "cp -r ${WORKSPACE}/[CJP]*.txt ~/Test_Project/"
+
                 }
             }
         }
