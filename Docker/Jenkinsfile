@@ -5,7 +5,14 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 script {
-                    docker.build('mydockerimage:latest', '.')
+                    def dockerImage = docker.build('mydockerimage:latest', '.')
+                    dockerImage.inside {
+                        // פה אפשר להריץ כל סקריפט או פקודות נוספות תוך השתמשות בתוך הקונטיינר שנוצר
+                        sh 'echo "Running inside Docker container"'
+                        // לדוגמה:
+                        // sh 'npm install'
+                        // sh 'npm test'
+                    }
                 }
             }
         }
