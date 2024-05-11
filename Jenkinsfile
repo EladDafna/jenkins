@@ -15,8 +15,6 @@ pipeline {
                     sh """
                        pwd
                        ls -la
-                       apt update
-                       apt install sudo
                        sudo cp index.html /var/www/html
                        """
                 }
