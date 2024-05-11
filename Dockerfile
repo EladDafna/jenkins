@@ -1,7 +1,3 @@
-FROM centos
-MAINTAINER eladdafna@gmail.com
+FROM node:16-alpine
 
-
-RUN yum install  python3 -y
-CMD ["echo","Python3 has been installed"]
-CMD ["python3"]
+RUN apk add -U git curl
