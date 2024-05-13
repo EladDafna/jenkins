@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                        cp ${WORKSPACE}/index.html /var/www/html
+                        docker cp index.html admiring_bardeen:/var/www/html/
                        """
                        
                 }
