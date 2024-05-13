@@ -9,7 +9,7 @@ pipeline {
                         cat mypassword.txt | sudo apt install docker.io -y
                         docker build -t dockertest:latest .
                         docker images
-                        docker run -d  -p 80:80 dockertest
+                        docker run -d --name apache_test -p 80:80 dockertest
                         docker ps
                         docker cp index.html admiring_bardeen:/var/www/html/
 
