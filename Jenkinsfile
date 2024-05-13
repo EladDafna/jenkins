@@ -5,8 +5,8 @@ pipeline {
             steps {
                 script {
                     sh """
-                        sudo apt update
-                        sudo apt install docker.io
+                    
+                        cat mypassword.txt | sudo -S apt update
                         docker build -t dockertest:latest .
                         docker images
                        """
