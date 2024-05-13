@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                       echo 'hello world'
+                       echo 'sudo apt install docker.io'
                        """
                        
                 }
