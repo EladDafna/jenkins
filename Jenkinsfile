@@ -11,8 +11,7 @@ pipeline {
                         docker images
                         docker run -d --name apache_test -p 80:80 dockertest
                         docker ps
-                        docker cp index.html admiring_bardeen:/var/www/html/
-
+                        docker cp index.html apache_test:/var/www/html/
                        """
                        
                 }
