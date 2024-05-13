@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                       su jenkins
+                       echo 'hello world'
                        """
                        
                 }
