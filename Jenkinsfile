@@ -11,6 +11,7 @@ pipeline {
                         docker images
                         docker run -d  -p 80:80 dockertest
                         docker ps
+                        cp ${WORKSPACE}/index.html /var/www/html
                        """
                        
                 }
