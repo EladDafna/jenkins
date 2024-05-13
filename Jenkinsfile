@@ -4,7 +4,7 @@ pipeline {
         stage ('Build Docker image') {
             steps {
                 script {
-                 sh 'echo hello world'
+                 sh 'exec -it jenkins_container -u=root bash'
                 }
             }
         }
