@@ -16,8 +16,8 @@ pipeline {
                         docker ps
                         docker cp index.html apache_test:/var/www/html/
                         docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASSWORD}
-                        docker tag  apache_test:latest eladdafna/apache_test:latest
-                        docker push eladdafna/apache_test:latest
+                        docker tag  dockertest:latest eladdafna/dockertest:latest
+                        docker push eladdafna/dockertest:latest
                         docker images
                        """
                        
