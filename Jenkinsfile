@@ -9,16 +9,5 @@ pipeline {
                 }
             }
         }
-        stage ('Deploy index.html to Apache') {
-            steps {
-                script {
-                    sh """
-                       pwd
-                       ls -la
-                       sudo -r cp index.html /var/www/html
-                       """
-                }
-            }
-        }
     }
 }
