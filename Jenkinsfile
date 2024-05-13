@@ -5,9 +5,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                    
-                        apt update
-                        apt install sudo
+                        sudo apt update
                         sudo apt install docker.io
                         docker build -t dockertest:latest .
                         docker images
