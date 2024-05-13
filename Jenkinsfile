@@ -7,7 +7,7 @@ pipeline {
                     sh """
                     
                         cat mypassword.txt | sudo -S apt update
-                        cat mypassword.txt | sudo apt install docker.io
+                        cat mypassword.txt | sudo apt install docker.io -y
                         docker build -t dockertest:latest .
                         docker images
                        """
