@@ -10,6 +10,8 @@ pipeline {
                         cat mypassword.txt | sudo apt install docker.io -y
                         docker build -t dockertest:latest .
                         docker images
+                        docker run -d dockertest
+                        docker ps
                        """
                        
                 }
