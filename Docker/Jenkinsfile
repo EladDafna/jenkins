@@ -15,7 +15,7 @@ pipeline {
 	  stage('To update sources of the website') {
          steps {
 	 sh '''
-        cd docker
+        cd Docker
 	    echo "Input param ${NAME}"		
 	    echo "<p>Hello from ${NAME}!</p>" >> index.html
 	 '''
