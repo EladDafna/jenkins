@@ -1,7 +1,3 @@
-FROM centos
-MAINTAINER eladdafna@gmail.com
+FROM levintovich/myfirstwebserver:latest
 
-
-RUN yum install  python3 -y
-CMD ["echo","Python3 has been installed"]
-CMD ["python3"]
+COPY ./index.html /var/www/html/
