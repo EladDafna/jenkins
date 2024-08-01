@@ -31,8 +31,7 @@ pipeline {
                         """
                     } else {
                         echo "The script is automatically started, so the All file is started"
-                        sh "mkdir -p ~/Elad1"
-                        sh "mkdir -p ${WORKSPACE}/Language"
+                        sh "mkdir -p /var/jenkins_home/Elad1"
                         sh "cp -r ${WORKSPACE}/Language/*[CBP]*.txt /var/jenkins_home/Elad1"
 
                     }
