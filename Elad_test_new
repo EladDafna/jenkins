@@ -30,7 +30,7 @@ pipeline {
                             mkdir -p ${WORKSPACE}/EladTest33
                             mv ${params.Language}.txt ${WORKSPACE}/EladTest33
                         """
-                    } else {
+                    } else if (params.Language == 'All') {
                         echo "The script is automatically started, so the All file is started"
                         sh "mkdir -p ~/Elad1"
                         sh "cp -r ${WORKSPACE}/*[CBP]*.txt ~/Elad1/"
