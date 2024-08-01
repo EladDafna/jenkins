@@ -43,6 +43,8 @@ pipeline {
                 echo "Step 3 is running..."
                 script {
                      sh 'cd ~/Elad1'
+                     sh 'ls -la'
+                     sh 'pwd'
                 }
             }
         }
