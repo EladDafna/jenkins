@@ -31,8 +31,8 @@ pipeline {
                             mv ${params.Language}.txt ${WORKSPACE}/Language
                         """
                     } else {
-                        echo "The script is automatically started, so your chose is :" "${params.Language}.txt"
-                        sh "cp -r ${WORKSPACE}/Language/*[CBP]*.txt /var/jenkins_home/Elad1"
+                        echo "The script is automatically started, so your chose is: All "
+                        sh "cp -r ${WORKSPACE}*[CBP]*.txt" "${WORKSPACE}/Language"
 
                     }
                 }
