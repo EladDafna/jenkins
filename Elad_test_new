@@ -41,7 +41,7 @@ pipeline {
             steps {
                 echo "Step 3 is running..."
                 script {
-                     cd ~/Elad1
+                     sh 'cd ~/Elad1'
                 }
             }
         }
