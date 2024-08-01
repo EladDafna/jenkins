@@ -31,10 +31,14 @@ pipeline {
                             mv ${params.Language}.txt ${WORKSPACE}/Language
                         """
                     } else {
-                        echo "The script is automatically started, so your chose is: All "
-                        sh "cp -r ${WORKSPACE}*[CBP]*.txt" "${WORKSPACE}/Language"
-
+                            echo "The script is automatically started, so your choice is: All "
+                            sh """
+                                mkdir -p ${WORKSPACE}/Language
+                                cp ${WORKSPACE}/*[CBP]*.txt ${WORKSPACE}/Language/
+                                ls -la ${WORKSPACE}/Language/
+                               """
                     }
+
                 }
             }
         }
