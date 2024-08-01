@@ -25,6 +25,7 @@ pipeline {
                     sh 'ls -la'
                     if (params.Language == 'Python' || params.Language == 'Bash' || params.Language == 'C') {
                         sh """
+                            echo "Your Choose is: ${params.Language}
                             cat ${params.Language}.txt
                             mkdir -p ${WORKSPACE}/Language
                             mv ${params.Language}.txt ${WORKSPACE}/Language
