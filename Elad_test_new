@@ -32,7 +32,7 @@ pipeline {
                     } else {
                         echo "The script is automatically started, so the All file is started"
                         sh "mkdir -p ~/Elad1"
-                        sh "cp -r ${WORKSPACE}/*[CBP]*.txt ~/Elad1/"
+                        sh "cp -r ${WORKSPACE}/*[CBP]*.txt/EladTest33 ~/Elad1/"
                     }
                 }
             }
@@ -42,7 +42,7 @@ pipeline {
                 echo "Step 3 is running..."
                 script {
                     sh """
-                       cd ~/Elad1
+                       sh cd ~/Elad1
                        pwd
                        ls -la
                        cat *.txt
