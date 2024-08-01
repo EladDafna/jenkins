@@ -41,12 +41,7 @@ pipeline {
             steps {
                 echo "Step 3 is running..."
                 script {
-                    sh """
-                       sh cd ~/Elad1
-                       pwd
-                       ls -la
-                       cat *.txt
-                       """
+                     cd ~/Elad1
                 }
             }
         }
