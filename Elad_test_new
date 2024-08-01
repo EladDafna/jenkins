@@ -1,22 +1,47 @@
 pipeline {
     agent any
+    parameters {
+        choice(
+            name: 'Language',
+            choices: ['All', 'Python', 'C', 'Java'],
+            description: 'Choose the language',
+        )
+    }
     stages {
-        stage('Build') {
+        stage ('List File - (Step 1)') {
             steps {
-                echo 'Running on any agent'
-                sh 'echo Building...'
+                echo "step 1 is running...."
+                script {
+                    echo "${WORKSPACE}"
+                    sh 'ls -la'
+                }
             }
         }
-        stage('Test') {
+        stage ('Enter a File - (Step 2)') {
             steps {
-                echo 'Running tests...'
-                sh 'echo Tests are running'
+                echo "step 2 is running...."
+                script {
+                    sh 'pwd'
+                    sh 'ls -la'
+                    if (params.Language != 'All') {
+                        sh "cat ${params.Language}.txt"
+                    } else {
+                        echo "Skipping Step 2 as Language is 'All'"
+                    }
+                }
             }
         }
-        stage('Deploy') {
+        stage ('Save File in Another Agent - (Step 3)') {
+            agent {
+                label 'master'
+            }
             steps {
-                echo 'Deploying...'
-                sh 'echo Deployment in progress'
+                echo "Step 3 is running..."
+                script {
+                    sh 'cd ~'
+                       sh "cp -r ${WORKSPACE}/[CJP]*.txt ~/Test_Project/"
+
+                }
             }
         }
     }
