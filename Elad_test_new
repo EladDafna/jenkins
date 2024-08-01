@@ -26,13 +26,13 @@ pipeline {
                     if (params.Language == 'Python' || params.Language == 'Bash' || params.Language == 'C') {
                         sh """
                             cat ${params.Language}.txt
-                            mkdir -p ${WORKSPACE}/EladTest33
-                            mv ${params.Language}.txt ${WORKSPACE}/EladTest33
+                            mkdir -p ${WORKSPACE}/Language
+                            mv ${params.Language}.txt ${WORKSPACE}/Language
                         """
                     } else {
                         echo "The script is automatically started, so the All file is started"
                         sh "mkdir -p ~/Elad1"
-                        sh "cp -r ${WORKSPACE}/*[CBP]*.txt ~/Elad1/"
+                        sh "cp -r ${WORKSPACE}/Language/*[CBP]*.txt ~/Elad1/"
                     }
                 }
             }
