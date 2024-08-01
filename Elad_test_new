@@ -3,41 +3,51 @@ pipeline {
     parameters {
         choice(
             name: 'Language',
-            choices: ['All', 'Python', 'C', 'Java'],
+            choices: ['All', 'Python', 'C', 'Bash'],
             description: 'Choose the language',
+            defaultValue: 'All'
         )
     }
     stages {
-        stage ('List File - (Step 1)') {
+        stage('List File - (Step 1)') {
             steps {
-                echo "step 1 is running...."
+                echo "Step 1 is running...."
                 script {
-                    echo "${WORKSPACE}"
+                    echo "Workspace: ${WORKSPACE}"
                     sh 'ls -la'
                 }
             }
         }
-        stage ('Enter a File - (Step 2)') {
+        stage('File Name is: Python (Step 2)') {
             steps {
-                echo "step 2 is running...."
+                echo "Step 2 is running...."
                 script {
                     sh 'pwd'
                     sh 'ls -la'
-                    if (params.Language != 'All') {
-                        sh "cat ${params.Language}.txt"
+                    if (params.Language == 'Python' || params.Language == 'Bash' || params.Language == 'C') {
+                        sh """
+                            cat ${params.Language}.txt
+                            mkdir -p ${WORKSPACE}/EladTest33
+                            mv ${params.Language}.txt ${WORKSPACE}/EladTest33
+                        """
                     } else {
-                        echo "Skipping Step 2 as Language is 'All'"
+                        echo "The script is automatically started, so the All file is started"
+                        sh "mkdir -p ~/Elad"
+                        sh "cp -r ${WORKSPACE}/*[CBP]*.txt ~/Elad1/"
                     }
                 }
             }
         }
-        stage ('Save File in Another Agent - (Step 3)') {
+        stage('Save File in Another Agent - (Step 3)') {
             steps {
                 echo "Step 3 is running..."
                 script {
-                    sh 'cd ~'
-                       sh "cp -r ${WORKSPACE}/[CJP]*.txt ~/Test_Project/"
-
+                    sh """
+                       cd ~/Elad1
+                       pwd
+                       ls -la
+                       cat *.txt
+                       """
                 }
             }
         }
