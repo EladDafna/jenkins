@@ -35,19 +35,22 @@ pipeline {
                             sh """
                                 mkdir -p ${WORKSPACE}/Language
                                 cp ${WORKSPACE}/*[CBP]*.txt ${WORKSPACE}/Language/
-                                ls -la ${WORKSPACE}/Language/
                                """
                     }
 
                 }
             }
         }
-        stage('Save File in Another Agent - (Step 3)') {
+        stage('Check the Files - (Step 3)') {
             steps {
                 echo "Step 3 is running..."
                 script {
-                     sh 'ls -la /var/jenkins_home/Elad1/'
-                     sh 'pwd'
+                    sh """
+                        cd ${WORKSPACE}/Language/
+                        ls -la
+                        cat *
+                        
+                        """
                 }
             }
         }
