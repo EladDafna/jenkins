@@ -1,6 +1,5 @@
 pipeline {
     agent {
-        label 'any'
     }
     parameters {
         choice(
