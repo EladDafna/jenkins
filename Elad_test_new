@@ -7,10 +7,6 @@ pipeline {
             description: 'Choose the language'
         )
     }
-    environment {
-        // הגדרת משתנה ברירת מחדל לסביבה
-        DEFAULT_LANGUAGE = 'All'
-    }
     stages {
         stage('List File - (Step 1)') {
             steps {
@@ -22,4 +18,37 @@ pipeline {
             }
         }
         stage('File Name is: Python (Step 2)') {
- 
+            steps {
+                echo "Step 2 is running...."
+                script {
+                    sh 'pwd'
+                    sh 'ls -la'
+                    if (params.Language == 'Python' || params.Language == 'Bash' || params.Language == 'C') {
+                        sh """
+                            cat ${params.Language}.txt
+                            mkdir -p ${WORKSPACE}/EladTest33
+                            mv ${params.Language}.txt ${WORKSPACE}/EladTest33
+                        """
+                    } else {
+                        echo "The script is automatically started, so the All file is started"
+                        sh "mkdir -p ~/Elad1"
+                        sh "cp -r ${WORKSPACE}/*[CBP]*.txt ~/Elad1/"
+                    }
+                }
+            }
+        }
+        stage('Save File in Another Agent - (Step 3)') {
+            steps {
+                echo "Step 3 is running..."
+                script {
+                    sh """
+                       cd ~/Elad1
+                       pwd
+                       ls -la
+                       cat *.txt
+                       """
+                }
+            }
+        }
+    }
+}
