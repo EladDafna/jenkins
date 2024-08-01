@@ -25,68 +25,13 @@ pipeline {
                     sh 'ls -la'
                     if (params.Language == 'Python' || params.Language == 'Bash' || params.Language == 'C') {
                         sh """
-                            echo "Your Choose is: ${params.Language}
+                            echo "Your Choose is:" ${params.Language}
                             cat ${params.Language}.txt
                             mkdir -p ${WORKSPACE}/Language
                             mv ${params.Language}.txt ${WORKSPACE}/Language
                         """
                     } else {
                         echo "The script is automatically started, so the All file is started"
-                        sh """
-                            mkdir -p /var/jenkins_home/Elad1
-                            ls -la ${WORKSPACE}/Language
-                            cp -r ${WORKSPACE}/Language/*[CBP]*.txt /var/jenkins_home/Elad1/
-                            ls -la /var/jenkins_home/Elad1/
-                        """
-                    }
-                }
-            }
-        }
-        stage('Save File in Another Agent - (Step 3)') {
-            steps {
-                echo "Step 3 is running..."
-                script {
-                     sh 'ls -la /var/jenkins_home/Elad1/'
-                     sh 'pwd'
-                }
-            }
-        }
-    }
-}
-pipeline {
-    agent any
-    parameters {
-        choice(
-            name: 'Language',
-            choices: ['All', 'Python', 'C', 'Bash'],
-            description: 'Choose the language'
-        )
-    }
-    stages {
-        stage('List File - (Step 1)') {
-            steps {
-                echo "Step 1 is running...."
-                script {
-                    echo "Workspace: ${WORKSPACE}"
-                    sh 'ls -la'
-                }
-            }
-        }
-        stage('File Name is: Python (Step 2)') {
-            steps {
-                echo "Step 2 is running...."
-                script {
-                    sh 'pwd'
-                    sh 'ls -la'
-                    if (params.Language == 'Python' || params.Language == 'Bash' || params.Language == 'C') {
-                        sh """
-                            cat ${params.Language}.txt
-                            mkdir -p ${WORKSPACE}/Language
-                            mv ${params.Language}.txt ${WORKSPACE}/Language
-                        """
-                    } else {
-                        echo "The script is automatically started, so the All file is started"
-                        sh "mkdir -p /var/jenkins_home/Elad1"
                         sh "cp -r ${WORKSPACE}/Language/*[CBP]*.txt /var/jenkins_home/Elad1"
 
                     }
