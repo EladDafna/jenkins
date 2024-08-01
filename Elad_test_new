@@ -33,9 +33,8 @@ pipeline {
                         echo "The script is automatically started, so the All file is started"
                         sh "mkdir -p ~/Elad1"
                         sh "mkdir -p ${WORKSPACE}/Language"
-                        sh "ls -la ${WORKSPACE}/Language"  
-                        sh "cp -r ${WORKSPACE}/Language/*[CBP]*.txt ~/Elad1/"
-                        sh "ls -la ~/Elad1"  
+                        sh "cp -r ${WORKSPACE}/Language/*[CBP]*.txt /var/jenkins_home/Elad1"
+
                     }
                 }
             }
@@ -44,7 +43,7 @@ pipeline {
             steps {
                 echo "Step 3 is running..."
                 script {
-                     sh 'ls -la ~/Elad1'
+                     sh 'ls -la /var/jenkins_home/Elad1/'
                      sh 'pwd'
                 }
             }
