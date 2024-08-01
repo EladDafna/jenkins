@@ -32,9 +32,6 @@ pipeline {
             }
         }
         stage ('Save File in Another Agent - (Step 3)') {
-            agent {
-                label 'master'
-            }
             steps {
                 echo "Step 3 is running..."
                 script {
